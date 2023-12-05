@@ -1,0 +1,53 @@
+.container {
+  column-count: 4;
+
+  .category-card {
+    break-inside: avoid-column;
+    margin-bottom: 10px;
+
+    .header {
+      margin-bottom: 50px;
+    }
+
+    .heading {
+      margin-bottom: 0;
+    }
+  }
+
+  .item-card {
+    break-inside: avoid;
+    margin-bottom: 10px;
+
+    .header {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 5px;
+      padding: 0 3% 10px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    column-count: 4;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    column-count: 2;
+  }
+}

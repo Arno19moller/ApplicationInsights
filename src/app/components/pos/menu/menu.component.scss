@@ -1,0 +1,74 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav-right {
+  width: 300px;
+}
+
+.sidenav,
+.sidenav-right .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.menu-item {
+  margin: 0 10px;
+  width: calc(100% - 20px);
+}
+
+.selected {
+  border-radius: 5px;
+  background-color: rgb(240, 240, 240);
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+  width: 10px;
+}
+
+////////// Drag to delete ///////////////
+.list-item {
+  display: inline-flex;
+  justify-content: space-between;
+  border-radius: 4px;
+  margin: 0 10px;
+  width: calc(100% - 20px);
+  background-color: rgb(240, 240, 240);
+  transition: all 0.4s;
+  margin-bottom: 5px;
+}
+
+.totals-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+  background-color: rgb(63, 81, 181);
+  color: white;
+}
+
+.mat-toolbar-single-row {
+  padding: 0;
+}
+
+.mat-toolbar {
+  background-color: transparent;
+}

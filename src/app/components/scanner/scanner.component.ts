@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BarcodeFormat } from '@zxing/library';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-scanner',
+  templateUrl: './scanner.component.html',
+  styleUrl: './scanner.component.scss',
 })
-export class AppComponent implements OnInit {
-  title = 'ApplicationInsights';
+export class ScannerComponent {
   allowedFormats = [
     BarcodeFormat.CODE_128,
     BarcodeFormat.EAN_8,
@@ -19,8 +18,6 @@ export class AppComponent implements OnInit {
   ];
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   scanSuccessHandler(event: string) {
     console.log(event);
