@@ -25,4 +25,12 @@ export class RightMenuComponent {
   delete(item: MenuCategoryItem): void {
     this.sharedService.deleteMenuItem(item);
   }
+
+  addItem(item: MenuCategoryItem) {
+    this.sharedService.increaseItemQuantity(item);
+  }
+
+  removeItem(item: MenuCategoryItem) {
+    this.sharedService.decreaseItemQuantity(item);
+  }
 }

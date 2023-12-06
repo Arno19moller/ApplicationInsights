@@ -26,11 +26,40 @@
   </mat-menu>
 </div>
 <mat-nav-list class="item-list">
-  <div *ngFor="let item of sharedService.selectedItems(); let i = index">
+  @if (sharedService.selectedItems()?.length === 0) {
+  <span class="no-items">
+    <h4>No items selected</h4>
+  </span>
+  } @else {
+  <div *ngFor="let item of sharedService.selectedItems()">
     <span class="item">
+      <span
+        class="hidden-button"
+        [style.width]="item.selected ? '35px' : '0'"
+        [style.margin-left]="item.selected ? '8px' : '0'"
+      >
+        <span class="add-remove-container">
+          <button
+            mat-stroked-button
+            class="stroked-button button-plus"
+            (click)="addItem(item)"
+          >
+            +
+          </button>
+          <button
+            mat-stroked-button
+            class="stroked-button button-minus"
+            [disabled]="item.quantity === 1"
+            (click)="removeItem(item)"
+          >
+            -
+          </button>
+        </span>
+      </span>
       <a
         mat-list-item
         class="mat-list-item"
+        [style.background-color]="item.color"
         (click)="item.selected = !item.selected"
       >
         <span class="item-content">
@@ -43,18 +72,27 @@
           <span class="item-title"> R{{ item.total }} </span>
         </span>
       </a>
-      <button
-        mat-icon-button
+      <span
         class="hidden-button"
         [style.width]="item.selected ? '48px' : '0'"
-        [style.padding]="item.selected ? '6px' : '0'"
         [style.margin-right]="item.selected ? '6px' : '0'"
-        (click)="delete(item)"
       >
-        <mat-icon>delete</mat-icon>
-      </button>
+        <button
+          mat-stroked-button
+          class="stroked-button delete-btn"
+          [style.width]="item.selected ? '48px' : '0'"
+          [style.padding]="item.selected ? '6px' : '0'"
+          [style.margin-right]="'0'"
+          (click)="delete(item)"
+        >
+          <mat-icon style="margin-right: -5px; margin-left: -5px"
+            >delete</mat-icon
+          >
+        </button>
+      </span>
     </span>
   </div>
+  }
 </mat-nav-list>
 <div class="totals-container">
   <div class="totals-item">

@@ -39,6 +39,12 @@
         align-items: center;
         gap: 5px;
         padding: 0 3% 10px 0;
+
+        .btn-icons {
+          font-size: small;
+          margin: 0;
+          padding: 5px 0 0 0px;
+        }
       }
     }
   }
@@ -51,18 +57,18 @@
 
 @media screen and (max-width: 1200px) {
   .sub-container {
-    column-count: 2;
+    column-count: 2 !important;
   }
 }
 
 @media screen and (max-width: 960px) {
   .sub-container {
-    column-count: 4;
+    column-count: 4 !important;
   }
 }
 
 @media screen and (max-width: 720px) {
   .sub-container {
-    column-count: 2;
+    column-count: 2 !important;
   }
 }
