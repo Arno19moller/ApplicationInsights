@@ -59,8 +59,8 @@ export class SharedService {
     })
   );
 
-  // WaiterModel
-  waiterModels: POSModel[] = [];
+  // POSModel
+  posModel: POSModel[] = [];
 
   constructor() {}
 
@@ -83,11 +83,11 @@ export class SharedService {
         })
       )
       .subscribe((model) => {
-        this.waiterModels = model;
+        this.posModel = model;
       });
 
     this.waiters.set(
-      this.waiterModels.map((model: POSModel) => {
+      this.posModel.map((model: POSModel) => {
         return {
           name: model.waiter.name,
           selected: model.waiter.selected,
@@ -103,11 +103,11 @@ export class SharedService {
 
     if (!selectedTableNumber) return;
 
-    this.selectedWaiterIndex = this.waiterModels
+    this.selectedWaiterIndex = this.posModel
       .map((i) => i.waiter.name)
       .indexOf(waiterName);
 
-    this.selectedTableIndex = this.waiterModels[this.selectedWaiterIndex].tables
+    this.selectedTableIndex = this.posModel[this.selectedWaiterIndex].tables
       .map((x) => x.tableNumber)
       .indexOf(selectedTableNumber);
 
@@ -115,7 +115,7 @@ export class SharedService {
   }
 
   public changeTable(tableNum: number) {
-    this.selectedTableIndex = this.waiterModels[this.selectedWaiterIndex].tables
+    this.selectedTableIndex = this.posModel[this.selectedWaiterIndex].tables
       .map((x) => x.tableNumber)
       .indexOf(tableNum);
 
@@ -149,7 +149,7 @@ export class SharedService {
   private updateMenuItems() {
     this.categoryItems.update(() => {
       return [
-        ...this.waiterModels[this.selectedWaiterIndex].tables[
+        ...this.posModel[this.selectedWaiterIndex].tables[
           this.selectedTableIndex
         ].menuItems,
       ];
