@@ -1,53 +1,68 @@
+.back-btn {
+  margin-bottom: 10px;
+}
+
 .container {
-  column-count: 4;
+  height: calc(100dvh - 160px);
+  width: 100%;
+  overflow: auto;
 
-  .category-card {
-    break-inside: avoid-column;
-    margin-bottom: 10px;
+  .sub-container {
+    column-count: 4;
 
-    .header {
-      margin-bottom: 50px;
+    .category-card {
+      break-inside: avoid-column;
+      margin-bottom: 10px;
+
+      .header {
+        margin-bottom: 50px;
+      }
+
+      .heading {
+        margin-bottom: 0;
+      }
     }
 
-    .heading {
-      margin-bottom: 0;
+    .item-card {
+      break-inside: avoid;
+      margin-bottom: 10px;
+
+      .header {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 5px;
+        padding: 0 3% 10px 0;
+      }
     }
   }
 
-  .item-card {
-    break-inside: avoid;
-    margin-bottom: 10px;
-
-    .header {
-      margin-bottom: 10px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .content {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 5px;
-      padding: 0 3% 10px 0;
-    }
+  .divider {
+    margin-bottom: 15px;
+    color: rgb(216, 216, 216);
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .container {
+  .sub-container {
     column-count: 2;
   }
 }
 
 @media screen and (max-width: 960px) {
-  .container {
+  .sub-container {
     column-count: 4;
   }
 }
 
 @media screen and (max-width: 720px) {
-  .container {
+  .sub-container {
     column-count: 2;
   }
 }

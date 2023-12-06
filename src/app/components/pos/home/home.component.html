@@ -1,14 +1,15 @@
 <button
-  mat-stroked-button
   *ngIf="showCategoryItems"
-  style="margin-bottom: 10px"
+  mat-raised-button
+  color="primary"
+  class="back-btn"
   (click)="showCategoryItems = false"
 >
   <mat-icon>chevron_left</mat-icon>
   Back
 </button>
-<div style="height: calc(100dvh - 160px); width: 100%; overflow: auto">
-  <div *ngIf="!isHandset || !showCategoryItems" class="container">
+<div class="container">
+  <div *ngIf="!isHandset || !showCategoryItems" class="sub-container">
     <mat-card
       *ngFor="let card of cards"
       class="category-card"
@@ -23,8 +24,8 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <hr *ngIf="!isHandset" style="margin-bottom: 15px" />
-  <div *ngIf="!isHandset || showCategoryItems" class="container">
+  <hr *ngIf="!isHandset" class="divider" />
+  <div *ngIf="!isHandset || showCategoryItems" class="sub-container">
     <mat-card
       *ngFor="let item of sharedService.categoryItems()"
       class="item-card"

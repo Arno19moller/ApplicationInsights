@@ -23,7 +23,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/pos/home/home.component';
+import { LeftMenuComponent } from './components/pos/menu/left-menu/left-menu.component';
+import { MenuContentComponent } from './components/pos/menu/menu-content/menu-content.component';
 import { MenuComponent } from './components/pos/menu/menu.component';
+import { RightMenuComponent } from './components/pos/menu/right-menu/right-menu.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
 
 @NgModule({
@@ -33,6 +36,9 @@ import { ScannerComponent } from './components/scanner/scanner.component';
     HomeComponent,
     MenuComponent,
     DashboardComponent,
+    LeftMenuComponent,
+    RightMenuComponent,
+    MenuContentComponent,
   ],
   imports: [
     BrowserModule,

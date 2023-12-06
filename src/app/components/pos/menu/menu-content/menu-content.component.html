@@ -1,0 +1,32 @@
+<mat-toolbar>
+  @if (isHandset$ | async) {
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="toggleLeftMenu.emit()"
+  >
+    <mat-icon aria-label="Side nav toggle icon">chevron_right</mat-icon>
+  </button>
+  }
+
+  <mat-form-field appearance="outline" class="search-input">
+    <input matInput [(ngModel)]="value" placeholder="Placeholder" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <span class="spacer"></span>
+  @if (isHandset$ | async) {
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="toggleRightMenu.emit()"
+  >
+    <mat-icon aria-label="Side nav toggle icon">chevron_left</mat-icon>
+  </button>
+  }
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
