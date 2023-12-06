@@ -1,0 +1,39 @@
+<mat-toolbar class="toolbar">
+  <img src="../../../../../assets/images/forward-logo-new.png" width="199" />
+</mat-toolbar>
+<mat-nav-list>
+  <a
+    mat-list-item
+    *ngFor="let item of menuItemsLeft"
+    href="#"
+    class="menu-item"
+    [class.selected]="item.selected"
+    (click)="menuItemSelected(item, menuItemsLeft)"
+  >
+    {{ item.text }}
+  </a>
+</mat-nav-list>
+<mat-chip-listbox
+  class="mat-mdc-chip-set-stacked menu-item chip-list"
+  aria-label="Color selection"
+>
+  @for (chip of sharedService.waiters(); track chip) {
+  <mat-chip-option
+    [selected]="chip.selected"
+    [disabled]="!chip.selected"
+    [class.mat-mdc-chip-selected]="chip.selected"
+    color="primary"
+    class="option"
+    (click)="chipClicked(chip)"
+  >
+    @if (chip.selected) {
+    <div matChipAvatar>
+      <mat-icon class="icon">check</mat-icon>
+    </div>
+    } @else {
+    <div matChipAvatar class="example-header-image"></div>
+    }
+    {{ chip.name }}
+  </mat-chip-option>
+  }
+</mat-chip-listbox>

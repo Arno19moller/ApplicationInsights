@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BarcodeFormat } from '@zxing/library';
+import { SharedService } from './services/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,14 @@ export class AppComponent implements OnInit {
     BarcodeFormat.CODE_128,
     BarcodeFormat.QR_CODE,
   ];
+  public sharedService = inject(SharedService);
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sharedService.createWaiterModels();
+    this.sharedService.initializeMenu('Leslie K.');
+  }
 
   scanSuccessHandler(event: string) {
     console.log(event);

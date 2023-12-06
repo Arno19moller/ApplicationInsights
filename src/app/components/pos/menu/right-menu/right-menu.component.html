@@ -1,0 +1,118 @@
+<div class="container">
+  <div>
+    @if (sharedService.selectedWaiter()) {
+    <h4 class="heading">
+      <strong>
+        Table
+        {{ sharedService.selectedWaiter()?.selectedTable }}
+      </strong>
+    </h4>
+    <sub>{{ sharedService.selectedWaiter()?.name }}</sub>
+    } @else {
+    <h4>Please select a waiter</h4>
+    }
+  </div>
+  <button mat-icon-button [matMenuTriggerFor]="tableMenu">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <mat-menu #tableMenu="matMenu">
+    <button
+      mat-menu-item
+      *ngFor="let tableNum of sharedService.selectedWaiter()?.tables"
+      (click)="tableChanged(tableNum)"
+    >
+      <span>Table {{ tableNum }}</span>
+    </button>
+  </mat-menu>
+</div>
+<mat-nav-list class="item-list">
+  <div *ngFor="let item of sharedService.selectedItems(); let i = index">
+    <span class="item">
+      <a
+        mat-list-item
+        class="mat-list-item"
+        (click)="item.selected = !item.selected"
+      >
+        <span class="item-content">
+          <span>
+            <mat-chip class="chip">{{ item.quantity }}</mat-chip>
+            <span class="item-title">
+              {{ item.title }}
+            </span>
+          </span>
+          <span class="item-title"> R{{ item.total }} </span>
+        </span>
+      </a>
+      <button
+        mat-icon-button
+        class="hidden-button"
+        [style.width]="item.selected ? '48px' : '0'"
+        [style.padding]="item.selected ? '6px' : '0'"
+        [style.margin-right]="item.selected ? '6px' : '0'"
+        (click)="delete(item)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </span>
+  </div>
+</mat-nav-list>
+<div class="totals-container">
+  <div class="totals-item">
+    <sub>Subtotal</sub>
+    <sub>R {{ sharedService.totalSum() }}</sub>
+  </div>
+  <div class="totals-item totals-item-last">
+    <sub>Tax 10%</sub>
+    @if (sharedService.totalSum()) {
+    <sub>
+      R
+      {{ sharedService.totalSum()! > 0 ? sharedService.totalSum()! / 10 : 0 }}
+    </sub>
+    } @else {
+    <sub>R 0</sub>
+    }
+  </div>
+  <div class="totals-item">
+    <h4>Total</h4>
+    <h4>
+      @if (sharedService.totalSum()) {
+      <strong>
+        R
+        {{
+          sharedService.totalSum()! > 0
+            ? sharedService.totalSum()! +
+              (sharedService.totalSum()! > 0
+                ? sharedService.totalSum()! / 10
+                : 0)
+            : 0
+        }}
+      </strong>
+      } @else {
+      <strong>R 0</strong>
+      }
+    </h4>
+  </div>
+  <div class="payment-method-container">
+    <div class="sub-container">
+      <sub>Payment method</sub><br />
+      <div class="button-container">
+        <mat-button-toggle-group
+          name="favoriteColor"
+          class="button-toggle-group"
+        >
+          <mat-button-toggle value="cash" class="button-left">
+            <mat-icon> attach_money</mat-icon>
+            Cash
+          </mat-button-toggle>
+          <mat-button-toggle value="card" class="button-right">
+            <mat-icon>credit_card</mat-icon>
+            Card
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <button mat-raised-button color="warn" class="place-order-btn">
+      Place Order
+    </button>
+  </div>
+</div>

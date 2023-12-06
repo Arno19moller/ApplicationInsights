@@ -5,4 +5,5 @@ export interface MenuCategoryItem {
   total: number;
   quantity: number;
   selected: boolean;
+  icon: string;
 }

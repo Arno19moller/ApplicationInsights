@@ -1,0 +1,39 @@
+.toolbar {
+  padding: 0;
+}
+
+.menu-item {
+  margin: 0 10px;
+  width: calc(100% - 20px);
+}
+
+.selected {
+  border-radius: 5px;
+  background-color: rgb(230, 230, 230);
+}
+
+.chip-list {
+  position: absolute;
+  bottom: 0;
+
+  .option {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .icon {
+      font-size: large;
+      height: 21px;
+      width: 21px;
+      font-weight: 100;
+      color: var(--mdc-chip-with-icon-selected-icon-color);
+    }
+  }
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+  width: 10px;
+}

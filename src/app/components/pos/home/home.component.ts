@@ -41,40 +41,10 @@ export class HomeComponent implements OnInit {
   }
 
   increaseItemQuantity(item: MenuCategoryItem) {
-    item.quantity++;
-    this.sharedService.categoryItems.update((items: MenuCategoryItem[]) => {
-      const index = items.map((i) => i.title).indexOf(item.title);
-
-      if (index === -1) {
-        items.push({
-          title: item.title,
-          price: item.price,
-          quantity: item.quantity,
-          total: 0,
-          selected: false,
-          breadcrumb: ['Orders', 'Kitchen'],
-        });
-      } else {
-        items[index].quantity = item.quantity;
-        items[index].total = item.quantity * item.price;
-      }
-      return [...items];
-    });
+    this.sharedService.increaseItemQuantity(item);
   }
 
   decreaseItemQuantity(item: MenuCategoryItem) {
-    if (item.quantity > 0) item.quantity--;
-    this.sharedService.categoryItems.update((items: MenuCategoryItem[]) => {
-      const index = items.map((i) => i.title).indexOf(item.title);
-
-      if (index === -1) {
-        return items;
-      } else {
-        items[index].quantity = item.quantity;
-        items[index].total = item.quantity > 0 ? item.quantity * item.price : 0;
-        items[index].selected = item.quantity > 0 ? item.selected : false;
-      }
-      return [...items];
-    });
+    this.sharedService.decreaseItemQuantity(item);
   }
 }
