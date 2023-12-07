@@ -27,8 +27,9 @@
   <hr *ngIf="!isHandset" class="divider" />
   <div *ngIf="!isHandset || showCategoryItems" class="sub-container">
     <mat-card
-      *ngFor="let item of sharedService.categoryItems()"
+      *ngFor="let item of sharedService.categoryItems(); let i = index"
       class="item-card"
+      [style.background-color]="item.quantity > 0 ? item.color : 'white'"
     >
       <mat-card-header class="header">
         <sub>{{ item.breadcrumb }}</sub>
@@ -38,12 +39,20 @@
         <p>R{{ item.price }}</p>
       </mat-card-content>
       <mat-card-footer class="content">
-        <button mat-stroked-button (click)="decreaseItemQuantity(item)">
-          -
+        <button
+          mat-stroked-button
+          (click)="decreaseItemQuantity(item)"
+          style="background-color: white"
+        >
+          <mat-icon class="btn-icons">remove</mat-icon>
         </button>
         {{ item.quantity }}
-        <button mat-stroked-button (click)="increaseItemQuantity(item)">
-          +
+        <button
+          mat-stroked-button
+          (click)="increaseItemQuantity(item)"
+          style="background-color: white"
+        >
+          <mat-icon class="btn-icons">add</mat-icon>
         </button>
       </mat-card-footer>
     </mat-card>

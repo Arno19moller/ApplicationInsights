@@ -14,6 +14,11 @@
   height: calc(100% - 420px);
   overflow: auto;
 
+  .no-items {
+    width: 100%;
+    text-align: center;
+  }
+
   .item {
     overflow: hidden;
     white-space: nowrap;
@@ -26,9 +31,11 @@
       border-radius: 4px;
       margin: 0 10px;
       width: calc(100% - 20px);
+      height: 50px;
       background-color: rgb(240, 240, 240);
       transition: all 0.4s;
       margin-bottom: 5px;
+      border: 1px solid rgb(231, 231, 231);
 
       .item-content {
         display: flex;
@@ -38,6 +45,7 @@
 
         .chip {
           background-color: white;
+          margin-right: 5px;
         }
 
         .item-title {
@@ -48,8 +56,48 @@
 
     .hidden-button {
       transition: all 0.2s;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+
+      .delete-btn {
+        height: 50px;
+        width: 40px;
+        padding: 0;
+        text-align: center;
+      }
+
+      .add-remove-container {
+        width: 30px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 5px;
+
+        .button {
+          height: 25px;
+          width: 25px;
+          padding: 0;
+          text-align: center;
+          overflow: hidden;
+        }
+
+        .button-plus {
+          @extend .button;
+          font-size: small;
+        }
+
+        .button-minus {
+          @extend .button;
+          font-size: x-large;
+        }
+      }
     }
   }
+}
+
+.stroked-button {
+  min-width: 15px;
+  min-height: 15px;
 }
 
 .totals-container {
@@ -129,4 +177,11 @@
 
 .mat-toolbar {
   background-color: transparent;
+}
+
+.mat-mdc-button .mat-mdc-button-touch-target,
+.mat-mdc-unelevated-button .mat-mdc-button-touch-target,
+.mat-mdc-raised-button .mat-mdc-button-touch-target,
+.mat-mdc-outlined-button .mat-mdc-button-touch-target {
+  height: 25px !important;
 }

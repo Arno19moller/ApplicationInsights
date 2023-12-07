@@ -1,12 +1,25 @@
 {
   "name": "application-insights",
-  "version": "0.0.0",
+  "productName": "forwardpos",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "src/index.js",
+  "keywords": [],
+  "author": {
+    "name": "Arno",
+    "email": "arno19moller@gmail.com"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "electron-start": "electron-forge start",
+    "electron-package": "electron-forge package",
+    "electron-make": "electron-forge make",
+    "electron-publish": "electron-forge publish"
   },
   "private": true,
   "dependencies": {
@@ -24,15 +37,25 @@
     "@zxing/browser": "^0.1.4",
     "@zxing/library": "^0.20.0",
     "@zxing/ngx-scanner": "^16.1.0",
+    "electron": "^28.0.0",
+    "electron-squirrel-startup": "^1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.2",
+    "update-electron-app": "^3.0.0",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.2",
     "@angular/cli": "^17.0.2",
     "@angular/compiler-cli": "^17.0.4",
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
     "@types/jasmine": "~4.3.0",
+    "electron": "28.0.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

@@ -19,6 +19,16 @@ export class HomeComponent implements OnInit {
     { name: 'Drinks', icon: 'free_breakfast' },
     { name: 'Alcohol', icon: 'free_breakfast' },
   ];
+  cardColors: string[] = [
+    '#E3F2FD',
+    '#FFF9E1',
+    '#ffebf5',
+    '#E8F5E9',
+    '#ffe0e0',
+    '#E0F7FA',
+    '#FFFDE7',
+    '#F3E5F5',
+  ];
 
   isHandset = false;
   showCategoryItems = false;
