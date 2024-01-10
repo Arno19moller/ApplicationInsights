@@ -1,15 +1,13 @@
 {
   "name": "application-insights",
   "productName": "forwardpos",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "version": "0.0.4",
+  "description": "testing auto updates with electron",
   "main": "src/index.js",
-  "keywords": [],
-  "author": {
-    "name": "Arno",
-    "email": "arno19moller@gmail.com"
-  },
+  "repository": "https://github.com/Arno19moller/Forward-POS",
+  "author": "Arno19moller",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -17,11 +15,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "electron-start": "electron-forge start",
-    "electron-package": "electron-forge package",
-    "electron-make": "electron-forge make",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
     "electron-publish": "electron-forge publish"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^17.0.4",
     "@angular/cdk": "17.0.1",
@@ -37,7 +34,6 @@
     "@zxing/browser": "^0.1.4",
     "@zxing/library": "^0.20.0",
     "@zxing/ngx-scanner": "^16.1.0",
-    "electron": "^28.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.2",
@@ -54,6 +50,7 @@
     "@electron-forge/maker-squirrel": "^7.2.0",
     "@electron-forge/maker-zip": "^7.2.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+    "@electron-forge/publisher-github": "^7.2.0",
     "@types/jasmine": "~4.3.0",
     "electron": "28.0.0",
     "jasmine-core": "~4.6.0",
@@ -63,5 +60,10 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.2.2"
+  },
+  "build": {
+    "win": {
+      "target": "squirrel"
+    }
   }
 }
